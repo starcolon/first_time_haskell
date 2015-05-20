@@ -37,5 +37,3 @@ main :: IO()
 main = do
 	print primes
 
-
-
