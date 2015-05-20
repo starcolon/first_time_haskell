@@ -38,15 +38,18 @@ append_r n f xs
 	| otherwise = xs
 
 
+
 --list_tri = take 10 make_triangle_list
 --list_u = transfer (\x -> x*5) [1,2,3]
 list_s = [1..2]
 --list_u = transfer_tuple (*) list_s
-list_w = append_r 7 (*) list_s
+list_mul = append_r 7 (*) list_s
+list_diff_sqr = append_r 7 (\x y -> x*x - y*y) list_s
 
 main :: IO()
 main = do
 	putStr "Mapping from ..."
 	print list_s
 	putStr "To ..."
-	print list_w
+	print list_mul
+	print list_diff_sqr
