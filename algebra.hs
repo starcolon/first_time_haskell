@@ -42,7 +42,7 @@ append_r n f xs
 --list_u = transfer (\x -> x*5) [1,2,3]
 list_s = [1..2]
 --list_u = transfer_tuple (*) list_s
-list_w = append_r 5 (+) list_s
+list_w = append_r 7 (*) list_s
 
 main :: IO()
 main = do
