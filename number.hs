@@ -28,7 +28,7 @@ sublist xs a = [x|x <- xs, x<a]
 	
 
 list :: [Int]
-list = [1..1024]
+list = [1..4242]
 primes = [x|x <- list,  not(divisible_by_other_in list x)]
 
 
