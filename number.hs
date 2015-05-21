@@ -16,17 +16,6 @@ contain (a:aa) k
 	| a == k = True
 	| otherwise = contain aa k
 
-identity_vec :: a -> [a]
-identity_vec 0 = []
-identity_vec 1 = [1]
-identity_vec n = [] ++ []
-
-
-identity :: a -> [[a]]
-identity 0 = [[]]
-identity 1 = [[1]]
-identity n = [v|v]
-
 
 divisible_by_other_in :: [Int] -> Int -> Bool
 divisible_by_other_in [] _ = False
@@ -42,7 +31,6 @@ sublist xs a = [x|x <- xs, x<a]
 list :: [Int]
 list = [1..4242]
 primes = [x|x <- list,  not(divisible_by_other_in list x)]
-
 
 
 main :: IO()

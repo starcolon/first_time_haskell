@@ -37,6 +37,11 @@ append_r n f xs
 		in append_r (n-1) f (xs ++ [f lst lst2])
 	| otherwise = xs
 
+identity :: (Num a) => a -> [[a]]
+identity 0 = error "Zero dimension"
+identity 1 = [[1]]
+identity n = [[if w==v then 1 else 0|w <- [0..n]]|v <- [0..n]]
+
 
 
 --list_tri = take 10 make_triangle_list
@@ -45,6 +50,8 @@ list_s = [1..2]
 --list_u = transfer_tuple (*) list_s
 list_mul = append_r 7 (*) list_s
 list_diff_sqr = append_r 7 (\x y -> x*x - y*y) list_s
+i3 = identity 3
+i9 = identity 9
 
 main :: IO()
 main = do
@@ -53,3 +60,5 @@ main = do
 	putStr "To ..."
 	print list_mul
 	print list_diff_sqr
+	print i3
+	print i9
