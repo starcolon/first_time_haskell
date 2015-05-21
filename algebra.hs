@@ -45,8 +45,7 @@ identity n
 printmat :: [[Int]] -> IO()
 printmat [] = return ()
 printmat [[]] = return ()
-printmat [[vs]] = print ( head [vs] )
---printmat [v:vs] = print v >> printmat [vs]
+printmat ws = print (head ws) >> printmat (tail ws)
 
 
 
@@ -65,5 +64,5 @@ main = do
 	print list_s
 	putStr "To ..."
 	print list_mul
-	putStr "------------------"
-	printmat i3
+	putStr "------------------\n"
+	printmat i9
