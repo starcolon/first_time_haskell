@@ -37,10 +37,17 @@ append_r n f xs
 		in append_r (n-1) f (xs ++ [f lst lst2])
 	| otherwise = xs
 
-identity :: (Num a) => a -> [[a]]
-identity 0 = error "Zero dimension"
-identity 1 = [[1]]
-identity n = [[if w==v then 1 else 0|w <- [0..n]]|v <- [0..n]]
+identity :: Int -> [[Int]]
+identity n 
+	| n<=1 = [[1]]
+	| otherwise = [[if w==v then 1 else 0|w <- [0..n]]|v <- [0..n]]
+
+printmat :: [[Int]] -> IO()
+printmat [] = return ()
+printmat [[]] = return ()
+printmat [v:[]] = print v
+printmat [vs] = print head vs
+--printmat [v:vs] = print v >> printmat [vs]
 
 
 
@@ -59,6 +66,5 @@ main = do
 	print list_s
 	putStr "To ..."
 	print list_mul
-	print list_diff_sqr
-	print i3
-	print i9
+	putStr "------------------"
+	printmat i9
