@@ -40,13 +40,12 @@ append_r n f xs
 identity :: Int -> [[Int]]
 identity n 
 	| n<=1 = [[1]]
-	| otherwise = [[if w==v then 1 else 0|w <- [0..n]]|v <- [0..n]]
+	| otherwise = [[if w==v then 1 else 0|w <- [0..n-1]]|v <- [0..n-1]]
 
 printmat :: [[Int]] -> IO()
 printmat [] = return ()
 printmat [[]] = return ()
-printmat [v:[]] = print v
-printmat [vs] = print head vs
+printmat [[vs]] = print ( head [vs] )
 --printmat [v:vs] = print v >> printmat [vs]
 
 
@@ -67,4 +66,4 @@ main = do
 	putStr "To ..."
 	print list_mul
 	putStr "------------------"
-	printmat i9
+	printmat i3
