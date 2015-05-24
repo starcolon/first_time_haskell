@@ -17,10 +17,10 @@ module Main where
 	printpulse [] = return ()
 	printpulse (x:[]) = return ()
 	printpulse (x:(y:ys)) 
-		| x==1 && y==0 = putStrLn "  |" >> putStrLn "__" >> printpulse (y:ys)
+		| x==1 && y==0 = putStrLn "  |" >> putStrLn "--" >> printpulse (y:ys)
 		| x==1 && y==1 = putStrLn "  |" >> putStrLn "  |" >> printpulse (y:ys)
 		| x==0 && y==0 = putStrLn "| " >> putStrLn "| " >> printpulse (y:ys)
-		| otherwise = putStrLn "| " >> putStrLn "__" >> printpulse (y:ys)
+		| otherwise = putStrLn "| " >> putStrLn "--" >> printpulse (y:ys)
 
 
 
