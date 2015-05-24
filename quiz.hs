@@ -22,17 +22,28 @@ module Main where
 		| x==0 && y==0 = putStrLn "| " >> putStrLn "| " >> printpulse (y:ys)
 		| otherwise = putStrLn "| " >> putStrLn "--" >> printpulse (y:ys)
 
+	modulate = \v w -> zipfn v (\x y -> x*y) w
+	combine = \v w -> zipfn v (\x y -> max x y) w
 
 
-	pulse = [0,3,8,11,13,15,10,7,7,3,1,0,5,6,0,0,7,5,5,3,5,6,1,6,6,1,0,5,5,2]
-	bits = regulate pulse
+
+	pulse1 = [0,3,8,11,13,15,10,7,7,3,1,0,5,6,0,0,7,5,5,3,5,6,1,6,6,1,0,5,5,2]
+	pulse2 = [0,1,1,5,3,8,10,10,12,8,8,3,0,0,0,1,0,0,1,5,7,0,0,1,15,3,8,9]
+	bits1 = regulate pulse1
+	bits2 = regulate pulse2
+
+	modbits = modulate bits1 bits2
+	orbits = combine bits1 bits2
 
 
 	main :: IO()
 	main = do
 		putStrLn "========================================"
-		print bits
-		printpulse bits
+		printpulse bits1
+		putStrLn " - modulate with -"
+		printpulse bits2
+		putStrLn " - results in -"
+		printpulse orbits
 		putStrLn "========================================"
 		
 
