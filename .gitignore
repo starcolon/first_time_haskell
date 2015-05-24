@@ -1,4 +1,6 @@
 *.hi
-*.oalgebra
+*.o
 hello
 number
+algebra
+quiz
