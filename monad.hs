@@ -29,6 +29,14 @@ scale c (Vector3D u v w) = (Vector3D cu cv cw)
 			cv = c*v;
 			cw = c*w}
 
+instance Monad vectorize where
+	return :: [Vector3D]
+
+
+
+
+
+
 
 printv :: Vector3D -> IO()
 printv (Vector3D u v w) = putStr "(" >> print u >> print v >> print w >> putStr ")"
