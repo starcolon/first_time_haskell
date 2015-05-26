@@ -29,8 +29,10 @@ scale c (Vector3D u v w) = (Vector3D cu cv cw)
 			cv = c*v;
 			cw = c*w}
 
-instance Monad vectorize where
-	return :: [Vector3D]
+type VectorList a = [Vector3D]
+
+instance Monad VectorList where
+	return = VectorList
 
 
 
