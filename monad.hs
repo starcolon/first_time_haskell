@@ -29,11 +29,9 @@ scale c (Vector3D u v w) = (Vector3D cu cv cw)
 			cv = c*v;
 			cw = c*w}
 
-type VectorList a = [Vector3D]
-
-instance Monad VectorList where
-	return = VectorList
-
+exert :: [Vector3D] -> (Vector3D -> Vector3D) -> [Vector3D]
+exert [] _ = []
+exert [v] t = [t v] 
 
 
 
