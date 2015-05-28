@@ -33,9 +33,10 @@ exert :: [Vector3D] -> (Vector3D -> Vector3D) -> [Vector3D]
 exert [] _ = []
 exert [v] t = [t v] 
 
-
-
-
+mapmag :: [Vector3D] -> [Float]
+mapmag [] = []
+mapmag (v:[]) = [mag v]
+mapmag (v:vs) = [mag v] ++ mapmag vs
 
 
 printv :: Vector3D -> IO()
