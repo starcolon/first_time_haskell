@@ -38,12 +38,27 @@ mapmag [] = []
 mapmag (v:[]) = [mag v]
 mapmag (v:vs) = [mag v] ++ mapmag vs
 
+addvec :: Vector3D -> [Vector3D] -> [Vector3D]
+addvec v [] = [v]
+addvec v ws = ws++[v]
 
 printv :: Vector3D -> IO()
 printv (Vector3D u v w) = putStr "(" >> print u >> print v >> print w >> putStr ")"
+
+printvs :: [Vector3D] -> IO()
+printvs [] = return ()
+printvs (v:[]) = print v
+printvs (v:vs) = print v >> printvs vs
+
+
+-- sequence of process
+my_field = [] >>= addvec (Vector3D 0 0 0)
 
 
 
 main :: IO()
 main = do
 	putStrLn "================================="
+
+
+
